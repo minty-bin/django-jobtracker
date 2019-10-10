@@ -1,3 +1,4 @@
+# block these for now
 staticfiles/*
 jobtracker/migrations/0*
 .idea/*
