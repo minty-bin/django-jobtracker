@@ -1,0 +1,51 @@
+#navbar {
+  background-color: #5c8a8a;
+}
+
+#body {
+  background-color: #e0ebeb;
+}
+
+#jobh3 {
+   background-color: green;
+}
+
+h3 {
+   background-color: #a3c2c2;
+}
+
+#job {
+	border: 5px solid black ;
+}
+
+#ajob {
+	border: 7px solid green ;
+}
+
+#ijob {
+	border: 7px solid orange ;
+}
+
+
+#ojob {
+	border: 7px solid red ;
+}
+
+
+#update {
+	border: 5px solid black ;
+}
+
+#status {
+	border: 5px solid black ;
+}
+
+
+
+/*
+customize the stripe color
+*/
+.table-striped>tbody>tr:nth-child(odd)>td,
+tr.found{
+    background-color: #c2d6d6;
+}

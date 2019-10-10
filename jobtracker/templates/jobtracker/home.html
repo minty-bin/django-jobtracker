@@ -1,0 +1,74 @@
+{% extends "jobtracker/base.html" %}
+{% block content %}
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Job entries -->
+<div class="w3-col l8 s12">
+
+  {% for job in jobs %}
+  <!-- job entry -->
+   {% if job.status == 'Active' %}
+	  <div id="ajob" class="w3-card-4 w3-margin w3-white w3-round-xlarge">
+   {% elif job.status == 'Inactive' %}
+	  <div id="ijob" class="w3-card-4 w3-margin w3-white w3-round-xlarge">
+   {% else %} 
+	  <div id="ojob" class="w3-card-4 w3-margin w3-white w3-round-xlarge">
+   {% endif %}
+    <div class="w3-container">
+      <h3><a class="mr-2" href="{% url 'job-detail' job.id %}">{{ job.title }}</a></h3>
+	  <h5> Created : {{ job.date_posted|date:"d F, Y H:i" }}</h5>
+	  <h5> Agency : {{ job.agency }} : {{ job.agency_contact|title }}, Tel : {{ job.agency_contact_telnum }}</h5>
+    </div>
+
+    <div class="w3-container">
+      <div class="w3-row">
+		<div>Description : </div>
+		<div><textarea rows="5" cols="100">{{ job.description }}</textarea></div>
+	  </div>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+		  {% if job.status == 'Active' %}
+		     <a class="w3-button w3-padding-large w3-green w3-border w3-round-large" href="{% url 'post-list' job.id %}">Show Posts</a><p>
+		  {% elif job.status == 'Inactive' %}
+			<a class="w3-button w3-padding-large w3-orange w3-border w3-round-large" href="{% url 'post-list' job.id %}">Show Posts</a><p>
+		  {% else %} 
+			<a class="w3-button w3-padding-large w3-red w3-border w3-round-large" href="{% url 'post-list' job.id %}">Show Posts</a><p>
+		  {% endif %}
+        </div>
+        <div class="w3-col m4 w3-right">
+		<p> {{ job.post_set.count }} posts</p>
+		</div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  {% endfor %}
+
+<!-- END JOB ENTRIES -->
+</div>
+
+<!-- Status Area -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card w3-margin w3-margin-top w3-round-xlarge">
+    <div id="status" class="w3-container w3-white w3-round-xlarge">
+      <h4><b>Job Status</b></h4>
+      <ul>
+		<li>{{ active_count }} <font color="green">Active</font></li>
+		<li>{{ inactive_count }} <font color="orange">Inactive</font></li>
+		<li>{{ obsolete_count }} <font color="red">Obsolete</font></li>
+	  </ul>
+    </div>
+  </div>
+<!-- END Status Area -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
+{% endblock content %}

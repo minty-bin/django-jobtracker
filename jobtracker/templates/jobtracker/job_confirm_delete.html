@@ -1,0 +1,32 @@
+{% extends "jobtracker/base.html" %}
+{% block content %}
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Job entries -->
+<div class="w3-col l8 s12">
+
+	<div id="post" class="w3-card-4 w3-margin w3-white w3-round-xlarge">
+		<div class="w3-container">
+			<form method="POST">
+				{% csrf_token %}
+				<div class="form-group">
+					<h2>Are you sure you want to delete the job "{{ object.title }}"</h2>
+				</div>
+				<div class="form-group">
+					<button class="w3-button w3-small w3-padding-large w3-green w3-border w3-round-large" type="submit">Yes, Delete</button>
+					<a class="w3-button w3-small w3-padding-large w3-red w3-border w3-round-large" href="{% url 'job-detail' object.id %}">Cancel</a>
+				</div>
+				<p></p>
+			</form>
+		</div>
+    </div>
+	<hr>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
+{% endblock content %}

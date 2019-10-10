@@ -1,0 +1,52 @@
+{% extends "jobtracker/base.html" %}
+{% block content %}
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Job entries -->
+<div class="w3-col l8 s12">
+
+    <div id="job" class="w3-card-4 w3-margin w3-white w3-round-xlarge">
+		<div class="w3-container">
+			<h4>{{ object.date_posted|date:"d F, Y H:i" }}</h4>
+			{% if object.creator == user %}
+			  <div>
+    			<a class="w3-button w3-padding-large w3-green w3-border w3-round-large" href="{% url 'job-post' object.id %}">Edit</a>
+    			<a class="w3-button w3-padding-large w3-red w3-border w3-round-large" href="{% url 'job-delete' object.id %}">Delete</a><p>
+			  </div>
+			{% endif %}
+		  </div>
+		  <div class="w3-container">
+			<h3 class="job">{{ object.title }}</h3>
+			  <table>
+			  <tr><td>location</td><td>{{ object.location }}</td></tr>
+			  <tr><td>url</td><td><a href="{{ object.url }}">{{ object.url }}</a></td></tr>
+			  <tr><td>job_id</td><td>{{ object.job_id }}</td></tr>
+			  <tr><td>agency</td><td>{{ object.agency }}</td></tr>
+			  <tr><td>location</td><td>{{ object.location }}</td></tr>
+			  <tr><td>agency_contact</td><td>{{ object.agency_contact }}</td></tr>
+			  <tr><td>agency_contact_telnum</td><td>{{ object.agency_contact_telnum }}</td></tr>
+			  <tr><td>description</td><td>{{ object.description }}</td></tr>
+			  <tr><td>cv</td><td><a href="{{ object.cv.url }}">{{ object.cv }}</a></td></tr>
+			  <tr><td>cover_letter</td><td>
+			  {% if object.cover_letter|length > 0 %}
+			  <a href="{{ object.cover_letter.url }}">{{ object.cover_letter.url }}
+			  {% endif %}
+			  </td></tr>
+			  <tr><td>status</td><td>{{ object.status }}</td></tr>
+			  {% for upl in post_list %}
+				<tr><td>post_list</td><td>{{ upl }}</td></tr>
+			  {% endfor %}
+			  </table>
+			</div>
+		  <p>
+		</div>
+		<p>
+    </div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+{% endblock content %}

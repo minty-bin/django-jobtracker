@@ -1,0 +1,40 @@
+{% extends "jobtracker/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Job entries -->
+<div class="w3-col l8 s12">
+
+    <div id="job" class="w3-card-4 w3-margin w3-white w3-round-xlarge">
+		<div class="w3-container">
+			<div class="w3-row">
+				<div class="w3-col m8 s12">
+					
+					<form enctype="multipart/form-data" method="POST">
+						<div>
+						{% csrf_token %}
+						<fieldset class="form-group w3-border-0">
+							<h3>New/Edit Post</h3>
+							{{ form|crispy }}
+						</fieldset>
+						<p>
+					    </div>
+						<div class="form-group">
+							<button class="w3-button w3-small w3-padding-large w3-green w3-border w3-round-large" type="submit">Submit</button>
+						</div>
+						<p>
+					</form>
+				</div>
+			</div>
+		</div>
+    </div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+{% endblock content %}

@@ -1,0 +1,67 @@
+{% extends "jobtracker/base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Grid -->
+<div class="w3-row">
+
+<div class="w3-col l8 s12">
+
+    <div class="w3-container">
+      <h3>About JobTracker</a></h3>
+    </div>
+
+    <div id="job" class="w3-card-4 w3-margin w3-white w3-round-xlarge">
+		<div class="w3-container">
+			<div class="w3-row">
+			  <p>JobTracker is a simple application to track Job applications.</p>
+			  Instructions for use:
+			  <ul>
+				  <li><b>New Job</b> Click on "New Job" to register a new job. This will appear on the main
+				  page. </p>
+				  <p>Add all the relevant information associated with your application and the contact details
+				  for the recruiter. Attach the CV/Resume and any covering letter you sent with your application.</p>
+				  You can edit the stored information the new job by clicking on the <b>title</b> for the job on the "Job Dashboard".</p>
+				  </li>
+
+				  <li><b>Job Status</b> Jobs have a colour coded status; <font color="green">Active</font>, <font color="orange">Inactive</font>
+				  and <font color="red">Obsolete/Archived</font> . </p>
+				  </li>
+
+				  <li><b>Job Dashboard</b> Shows all jobs, as well as a status summary for all Jobs. 
+				  The number of "Posts" associated with each job is also displayed.<p>
+				  </li>
+
+				  <li><b>Job Posts</b> As your application process proceeds; add Posts for related informaton; e.g. emails, notes and additional information (e.g. paste links
+				  to online interview or coding questions). A "Post" consists of a textual note and an optional attachment.<p>
+				  </li>
+
+				  <li><b>Deletion</b> Once a job is no longer relevant, it is suggested that you edit the status to "Obsolete/Archived" 
+				  (you may find some notes for example useful for future reference).<p>
+				  If you choose to delete the job instead (via clicking on the Job <b>title</b>), all posts associated with that job will also be deleted, and cannot be recovered.
+				  </li>
+			  </ul>
+			</div>
+		</div>
+	</div>
+	<hr>
+
+	
+    <div id="job" class="w3-card-4 w3-margin w3-white w3-round-xlarge">
+		<div class="w3-container">
+			<div class="w3-row">
+				Sample JobTracker screenshot for one "Active" job. <p>
+				<img src="{% static 'about.jpg' %}"/>
+			</div>
+		</div>
+	</div>
+		
+
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+{% endblock content %}

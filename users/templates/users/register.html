@@ -1,0 +1,43 @@
+{% extends "jobtracker/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Job entries -->
+<div class="w3-col l8 s12">
+
+    <div id="job" class="w3-card-4 w3-margin w3-white w3-round-xlarge">
+		<div class="w3-container">
+			<div class="w3-row">
+				<div class="w3-col m8 s12">
+					
+					<form method="POST">
+						<div>
+						{% csrf_token %}
+						<fieldset class="form-group w3-border-0">
+							<legend class="border-bottom mb-4">Sign Up! <b>(Note : use unique username - e.g. your email address)</b></legend>
+							{{ form|crispy }}
+						</fieldset>
+						<div class="form-group">
+							<button class="w3-button w3-small w3-padding-large w3-green w3-border w3-round-large" type="submit">Register</button>
+						</div>
+					</form>
+					<p>
+					<div class="border-top pt-3">
+						<small class="text-muted">
+							Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+						</small>
+					</div>
+					<p>
+				</div>
+			</div>
+		</div>
+    </div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+{% endblock content %}
