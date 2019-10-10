@@ -20,4 +20,4 @@ Instructions for use:
     If you choose to delete the job instead (via clicking on the Job **title**), all posts associated with that job will also be deleted, and cannot be recovered.
 
 A sample job entry is;
-![](staticfiles/about.jpg)
+![](about.jpg)
