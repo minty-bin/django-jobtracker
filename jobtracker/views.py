@@ -142,7 +142,8 @@ class PostCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
     def get_success_url(self, **kwargs):
         if kwargs != None:
-            return reverse('post-list',args=(str(self.kwargs['pk'])))
+            pkasstr = str(self.kwargs['pk'])
+            return reverse('post-list',args=(pkasstr,))
         else:
             # havent tested this path
             return reverse('post-list', args=(self.object.id,))
@@ -169,7 +170,8 @@ class PostPostView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def get_success_url(self, **kwargs):
         if kwargs != None:
-            return reverse('post-list',args=(str(self.kwargs['jobid'])))
+            jobidasstr = str(self.kwargs['jobid'])
+            return reverse('post-list',args=(jobidasstr,))
         else:
             # havent tested this path
             return reverse('post-list', args=(self.object.id,))
@@ -222,7 +224,8 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def get_success_url(self, **kwargs):
         if kwargs != None:
-            return reverse('post-list',args=(str(self.kwargs['jobid'])))
+            jobidasstr = str(self.kwargs['jobid'])
+            return reverse('post-list',args=(jobidasstr,))
         else:
             # havent tested this path
             return reverse('post-list', args=(self.object.id,))
